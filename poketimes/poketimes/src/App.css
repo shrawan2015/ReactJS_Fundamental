@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+
+.btn{
+  background-color: green
+}
+.btn:visited{
+  background-color: red!important;
+
+}
+.btn:hover {
+  background-color: red!important;
+}
+.btn:active{
+  background-color: red!important;
+}
+.btn:focus{
+  background-color: red!important;
+}
