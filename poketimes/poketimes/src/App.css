@@ -34,17 +34,25 @@
 
 .btn{
   background-color: green
+
 }
 .btn:visited{
   background-color: red!important;
+  color: white;
+
 
 }
 .btn:hover {
   background-color: red!important;
+  color: white;
+
 }
 .btn:active{
   background-color: red!important;
+  color: white;
+
 }
 .btn:focus{
   background-color: red!important;
+  color: white;
 }

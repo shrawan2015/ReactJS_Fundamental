@@ -28,10 +28,12 @@ class Home extends Component {
         // e.target.style.backgroundColor =  'blue'
         this.props.favouriteFunc(movie)
         
-        let bgColor =  [...this.state.bgColor,e.id];
+        let bgColor =  [...this.state.bgColor,movie.id];
         this.setState({
             bgColor:bgColor
+        
         })
+        // debugger
     }
 
     render() {
@@ -42,10 +44,15 @@ class Home extends Component {
 
         const postList  = movieList.length ? (
             movieList.map((movie) => {
+                const iscontain =  bgcolorrs.includes(movie.id)
+                let btn = ''
+                if (iscontain ){
+                        btn =  <button className="waves-effect btn-large red"  id={movie.id}   onClick={ (e) => this.favouriteList(e,movie) }  >Favourite</button>
 
+                }else{
+                    btn =  <button className="waves-effect btn-large green"  id={movie.id}   onClick={ (e) => this.favouriteList(e,movie) }  >Favourite</button>
+                }
                 return(
-                            
-
                             <div className="col s3"  key={movie.id}>
                                 <div className="card large">
                                     <div className="card-image">
@@ -57,7 +64,7 @@ class Home extends Component {
                                     <p>{movie.overview}</p>
                                     </div>
                                     <div className="card-action">
-                                    <button className="waves-effect btn"  id={movie.id}   onClick={ (e) => this.favouriteList(e,movie) }  >Favourite</button>
+                                    {btn}
                                     </div>
                                 </div>
                         </div>
