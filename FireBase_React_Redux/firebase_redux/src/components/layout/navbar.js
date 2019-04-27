@@ -10,7 +10,7 @@ const navbar = () => {
                 <Link to='/' className="brand-logo">
                     Marioplan
                 </Link>
-
+                
                 <SignedInLink />
                 <SignedOutLink />
 
