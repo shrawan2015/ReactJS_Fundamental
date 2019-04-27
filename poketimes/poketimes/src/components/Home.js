@@ -3,6 +3,10 @@ import axios from 'axios'
 
 class Home extends Component {
 
+constructor(props){
+    super(props)
+
+}
     state = {
         movieList:[],
         favouriteList:[],
@@ -10,16 +14,34 @@ class Home extends Component {
     }
 
 
+// shouldComponentUpdate(nextProps, nextState) {
+//     if (this.state.movieList !==  nextState.movieList ) {
+//                 debugger ;
 
-    //43dd8bb11c9abefef643794c5e0953d2
-    componentDidMount() {
-        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=43dd8bb11c9abefef643794c5e0953d2&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=27')
+//         return true
+//     }
+//             debugger ;
+
+//     return false
+// }
+
+componentDidUpdate(prevProps, prevState) {
+     axios.get('https://api.themoviedb.org/3/discover/movie?api_key=43dd8bb11c9abefef643794c5e0953d2&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=27')
         .then(res => {
             console.log(res.data.results)
-            this.setState({
+            if (prevState.movieList !== res.data.results.movieList){
+                this.setState({
                 movieList:res.data.results
             })
+            } 
+            
         })
+}
+    //43dd8bb11c9abefef643794c5e0953d2
+    componentDidMount() {
+                    debugger ;
+
+       
     }
 
     favouriteList = (e,movie) => {
